@@ -6,7 +6,7 @@
 /*   By: abenrach <abenrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 11:48:42 by abenrach          #+#    #+#             */
-/*   Updated: 2026/10/20 12:42:58 by abenrach         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:19:18 by abenrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include <list>
+# include <cstdlib>
 
 template<typename T>
 int easyfind(T &tab, int nb);
