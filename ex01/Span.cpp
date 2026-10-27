@@ -34,7 +34,7 @@ Span    &Span::operator=(const Span &src)
         if (src._size_max > 0)
         {
             new_tab = new int[src._size_max]();
-            for (int i = 0; i < static_cast<int>(src._size_nb); i++)
+            for (unsigned int i = 0; i < src._size_nb; i++)
                 this->_tab_int[i] = src._tab_int[i];
         
         }
@@ -62,7 +62,7 @@ int Span::longestSpan(void)
         throw std::logic_error("Error: Span is empty or have just 1 element");
     int max_nb = this->_tab_int[0];
     int min_nb = this->_tab_int[0];
-    for (int i = 0; i < static_cast<int>(this->_size_nb); i++)
+    for (unsigned int i = 0; i < this->_size_nb; i++)
     {
         if (min_nb > this->_tab_int[i])
             min_nb = this->_tab_int[i];
@@ -72,20 +72,23 @@ int Span::longestSpan(void)
     return (max_nb - min_nb);
 }
 
-// int Span::shortestSpan(void)
-// {
-//     if (this->_size_nb <= 1)
-//         throw std::logic_error("Error: Span is empty or have just 1 element");
-//     std::vector
-//     int shortest = ;
-//     for (int i = 0; i < this->_size_nb - 1; i++)
-//     {
-//         for (int j = i; j < this->_size_nb; j++)
-//         {
-            
-//         }
-//     }
-// }
+int Span::shortestSpan(void)
+{
+    if (this->_size_nb <= 1)
+        throw std::logic_error("Error: Span is empty or have just 1 element");
+    int tmp;
+    int shortest = std::max(this->_tab_int[0], this->_tab_int[1]) - std::min(this->_tab_int[0], this->_tab_int[1]);
+    for (unsigned int i = 0; i < this->_size_nb - 1; i++)
+    {
+        for (unsigned int j = i + 1; j < this->_size_nb; j++)
+        {
+            tmp = std::max(this->_tab_int[i], this->_tab_int[j]) - std::min(this->_tab_int[i], this->_tab_int[j]);
+            if (tmp < shortest)
+                shortest = tmp;
+        }
+    }
+    return (shortest);
+}
 
 Span::~Span(void)
 {

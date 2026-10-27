@@ -14,17 +14,17 @@
 
 int main(void)
 {
+    std::srand(std::time(NULL));
     try
     {
-        Span x(5);
-        x.addNumber(19);
-        x.addNumber(3);
-        x.addNumber(6);
-        x.addNumber(8);
-        x.addNumber(11);
+        Span x(10000);
+
+        for (int i = 0; i < 10000; i++)
+            x.addNumber(std::rand());
         std::cout << x.longestSpan() << std::endl;
-    }
-    catch (std::exception &e)
+        std::cout << x.shortestSpan() << std::endl; // on voit bien que le temps d'execution prend un certain temps
+    }                                               // mais ca se compte en dixieme de seconde donc
+    catch (std::exception &e)                       // j'en ai conclus que c'est pas necessaire de changer la complexite de mon programe
     {
         std::cout << e.what() << std::endl;
     }

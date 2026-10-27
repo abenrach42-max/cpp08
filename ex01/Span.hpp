@@ -18,6 +18,7 @@
 # include <exception>
 # include <cstdlib>
 # include <climits>
+# include <ctime>
 
 class Span
 {
@@ -30,7 +31,7 @@ class Span
         Span(const Span &src);
         Span    &operator=(const Span &src);
         void    addNumber(int nb);
-        // int     shortestSpan(void);
+        int     shortestSpan(void);
         int     longestSpan(void);
         ~Span(void);
 };
