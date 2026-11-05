@@ -19,13 +19,22 @@
 # include <string>
 # include <stack>
 # include <list>
+# include <vector>
 # include <exception>
 # include <cstdlib>
 # include <algorithm>
 
-template<typename T>                         // oublions pas que typename et class c'est la meme chose
-class   MutantStack : public    std::stack<T>
+template<typename T, typename Container = std::deque<T> >                         // oublions pas que typename et class c'est la meme chose
+class   MutantStack : public    std::stack<T, Container>
 {
+    public:
+        typedef typename Container::iterator iterator; // typedef permet de dire que iterator = typename Container::iterator
+        iterator    begin(void);
+        iterator    end();
+        MutantStack(void);
+        MutantStack(const MutantStack &src);
+        MutantStack &operator=(const MutantStack &src);
+        ~MutantStack(void);
 };
 
 # include "MutantStack.tpp"
