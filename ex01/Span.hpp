@@ -19,6 +19,7 @@
 # include <cstdlib>
 # include <climits>
 # include <ctime>
+# include <algorithm>
 
 class Span
 {

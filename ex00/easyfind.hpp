@@ -6,7 +6,7 @@
 /*   By: abenrach <abenrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 11:48:42 by abenrach          #+#    #+#             */
-/*   Updated: 2026/10/22 20:19:18 by abenrach         ###   ########.fr       */
+/*   Updated: 2026/11/04 20:29:58 by abenrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <exception>
 # include <list>
 # include <cstdlib>
+# include <algorithm>
 
 template<typename T>
-int easyfind(T &tab, int nb);
+typename T::iterator easyfind(T &tab, int nb);
 
 # include "easyfind.tpp"
 
